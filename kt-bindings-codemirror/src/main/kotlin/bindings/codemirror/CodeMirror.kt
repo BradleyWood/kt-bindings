@@ -13,8 +13,15 @@ external class CodeMirror(e: Element, options: Any = definedExternally) {
         fun fromTextArea(textArea: HTMLTextAreaElement, config: Any = definedExternally): CodeMirror
         fun defineMode(name: String, value: Any)
         fun defineExtension(name: String, value: Any)
+        fun defineDocExtension(name: String, value: Any)
+        fun defineOption(name: String, default: Any, updateFunc: Function<Any>)
+        fun defineInitHook(func: Function<Any>)
         fun registerHelper(type: String, name: String, value: Function<Any>)
+        fun registerGlobalHelper(type: String, name: String, predicate: Function<Any>, value: Any)
         class Pos(line: Int, ch: Int, sticky: String = definedExternally)
+
+        fun changeEnd(change: Change): Pos
+        fun countColumn(line: String, index: Number, tabSize: Number): Number
     }
 
     fun getValue(separator: String = definedExternally): String
@@ -104,9 +111,17 @@ data class ScrollInfo
         val clientHeight: Number
 )
 
-data class Coords(
+data class Coords
+(
         val left: Number,
         val right: Number,
         val top: Number,
         val bottom: Number
+)
+
+data class Change
+(
+        val to: Number,
+        val from: Number,
+        val text: String
 )
