@@ -9,7 +9,7 @@ external class CodeMirror(e: Element, options: Any = definedExternally) {
 
     companion object {
         var version: String
-        var defaults: Any
+        var defaults: dynamic
         fun fromTextArea(textArea: HTMLTextAreaElement, config: Any = definedExternally): CodeMirror
         fun defineMode(name: String, value: Any)
         fun defineExtension(name: String, value: Any)
@@ -25,7 +25,7 @@ external class CodeMirror(e: Element, options: Any = definedExternally) {
     fun lineCount(): Int
     fun firstLine(): Int
     fun lastLine(): Int
-    fun getLineHandle(num: Int): Any // LineHandle
+    fun getLineHandle(num: Int): dynamic // LineHandle
     fun getLineNumber(handle: Any): Int
 
     fun markClean()
@@ -57,14 +57,14 @@ external class CodeMirror(e: Element, options: Any = definedExternally) {
 
     fun setOption(option: String, value: Any)
 
-    fun getOption(option: String): Any
+    fun getOption(option: String): dynamic
     fun addKeyMap(map: Any, bottom: Boolean)
     fun removeKeyMap(map: Any)
 
     fun on(type: String, func: Function<Any>)
 
     fun off(type: String, func: Function<Any>)
-    fun markText(from: Pos, to: Pos, options: Any = definedExternally): Any // TextMarker
+    fun markText(from: Pos, to: Pos, options: Any = definedExternally): dynamic // TextMarker
 }
 
 typealias Pos = CodeMirror.Companion.Pos
