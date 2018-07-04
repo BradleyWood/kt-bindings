@@ -54,6 +54,31 @@ external class CodeMirror(e: Element, options: Any = definedExternally) {
     fun defaultCharWidth(): Number
     fun getViewport(): dynamic
     fun refresh()
+    fun getMode(): dynamic
+    fun getModeAt(pos: Pos): dynamic
+    fun getTokenAt(post: bindings.codemirror.Pos, precise: Boolean = definedExternally): dynamic
+    fun getLineTokens(line: Int, precise: Boolean): Array<dynamic>
+    fun getTokenTypeAt(pos: Pos): String
+    fun getHelpers(pos: Pos, type: String): Array<dynamic>
+    fun getHelper(pos: Pos, type: String): dynamic
+    fun getStateAfter(line: Int = definedExternally, precise: Boolean = definedExternally): dynamic
+    fun <T> operation(func: Function<T>): T
+    fun startOperation()
+    fun endOperation()
+    fun indentLine(line: Int, dir: String)
+    fun indentLine(line: Int, dir: Int = definedExternally)
+    fun toggleOverwrite(value: Boolean = definedExternally)
+    fun isReadOnly(): Boolean
+    fun lineSeparator(): String
+    fun execCommand(name: String)
+    fun posFromIndex(index: Int): Pos
+    fun indexFromPos(pos: Pos): Int
+    fun focus()
+    fun getInputField(): Element
+    fun getWrapperElement(): Element
+    fun getScrollerElement(): Element
+    fun getGutterElement(): Element
+    fun getCursor(): Pos
 
     fun setOption(option: String, value: Any)
 
