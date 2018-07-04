@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.bradleywood</groupId>
+    <artifactId>kt-bindings</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>kt-bindings</name>
+    <url>https://github.com/BradleyWood/kt-bindings</url>
+    <description>a set of kotlin bindings</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <kotlin.version>1.2.50</kotlin.version>
+    </properties>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Bradley Wood</name>
+            <email>bradley.wood@uoit.net</email>
+            <url>https://github.com/BradleyWood/</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/BradleyWood/kt-bindings.git</connection>
+        <developerConnection>scm:git:ssh://github.com:BradleyWood/kt-bindings.git</developerConnection>
+        <url>https://github.com/BradleyWood/kt-bindings</url>
+    </scm>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-stdlib-js</artifactId>
+                <version>${kotlin.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>kotlin-maven-plugin</artifactId>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <version>${kotlin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>compile</id>
+                            <goals>
+                                <goal>js</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>test-compile</id>
+                            <phase>test-compile</phase>
+                            <goals>
+                                <goal>test-js</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <moduleKind>commonjs</moduleKind>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <modules>
+        <module>kt-bindings-codemirror</module>
+    </modules>
+
+</project>
