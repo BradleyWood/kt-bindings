@@ -1,0 +1,23 @@
+{
+  "name": "kt-bindings",
+  "version": "0.1.0",
+  "author": "Bradley Wood <bradley.wood@uoit.net>",
+  "description": "a set of kotlin bindings",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "kotlin": "^1.2",
+    "codemirror": "^5.0.0"
+  },
+  "keywords": [
+    "JavaScript",
+    "Kotlin",
+    "CodeMirror",
+    "Bindings"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BradleyWood/kt-bindings.git"
+  },
+  "devDependencies": {}
+}
