@@ -14,7 +14,7 @@ external class CodeMirror(e: Element, options: Any = definedExternally) {
         fun defineMode(name: String, value: Any)
         fun defineExtension(name: String, value: Any)
         fun registerHelper(type: String, name: String, value: Function<Any>)
-        class Pos(line: Int, ch: Int)
+        class Pos(line: Int, ch: Int, sticky: String = definedExternally)
     }
 
     fun getValue(separator: String = definedExternally): String
@@ -38,6 +38,21 @@ external class CodeMirror(e: Element, options: Any = definedExternally) {
     fun replaceSelections(replacements: Array<String>, select: String = definedExternally)
     fun setSize(width: Number, height: Number)
     fun setSize(width: String, height: String)
+    fun scrollTo(x: Number, y: Number)
+    fun getScrollInfo(): ScrollInfo
+    fun scrollIntoView(what: Pos, margin: Number = definedExternally)
+    fun scrollIntoView(what: Coords, margin: Number = definedExternally)
+    fun cursorCoords(where: Boolean, mode: String): Coords
+    fun cursorCoords(where: Pos, mode: String): Coords
+    fun charCoords(pos: Pos, mode: String = definedExternally): Coords
+    fun coordsChar(obj: Any, mode: String = definedExternally): Pos
+    fun lineAtHeight(height: Number, mode: String = definedExternally): Number
+    fun heightAtLine(line: Int, mode: String = definedExternally, includeWidgets: Boolean = definedExternally): Number
+    // fun heightAtLine(line: LineHandle, mode: String = definedExternally, includeWidgets: Boolean = definedExternally): Number
+    fun defaultTextHeight(): Number
+
+    fun defaultCharWidth(): Number
+    fun getViewport(): dynamic
     fun refresh()
 
     fun setOption(option: String, value: Any)
@@ -51,3 +66,22 @@ external class CodeMirror(e: Element, options: Any = definedExternally) {
     fun off(type: String, func: Function<Any>)
     fun markText(from: Pos, to: Pos, options: Any = definedExternally): Any // TextMarker
 }
+
+typealias Pos = CodeMirror.Companion.Pos
+
+data class ScrollInfo
+(
+        val left: Number,
+        val top: Number,
+        val width: Number,
+        val height: Number,
+        val clientWidth: Number,
+        val clientHeight: Number
+)
+
+data class Coords(
+        val left: Number,
+        val right: Number,
+        val top: Number,
+        val bottom: Number
+)
