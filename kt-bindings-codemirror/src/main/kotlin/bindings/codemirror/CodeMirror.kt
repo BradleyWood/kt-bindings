@@ -103,25 +103,38 @@ typealias Pos = CodeMirror.Companion.Pos
 
 data class ScrollInfo
 (
+        @JsName("left")
         val left: Number,
+        @JsName("top")
         val top: Number,
+        @JsName("width")
         val width: Number,
+        @JsName("height")
         val height: Number,
+        @JsName("clientWidth")
         val clientWidth: Number,
+        @JsName("clientHeight")
         val clientHeight: Number
 )
 
 data class Coords
 (
+        @JsName("left")
         val left: Number,
+        @JsName("right")
         val right: Number,
+        @JsName("top")
         val top: Number,
+        @JsName("bottom")
         val bottom: Number
 )
 
 data class Change
 (
+        @JsName("to")
         val to: Number,
+        @JsName("from")
         val from: Number,
+        @JsName("text")
         val text: String
 )
